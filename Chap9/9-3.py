@@ -21,4 +21,19 @@ def append_to_list(item, list=[]):
 append_to_list(item = 1)  # [1]
 append_to_list(item = 2)  # [1, 2]
 
-# P.183 9.3.5~
+# 可変長引数（一度分解して接合する）
+# *：タプル化
+# **：辞書化
+def add_numbers(*args):
+    print(args)
+def print_info(**kwargs):
+    print(kwargs)
+print(add_numbers(1, 2, 3))                        # (1, 2, 3)
+print_info(name="Alice", age=30, city="New York")  # {'name': 'Alice', 'age': 30, 'city': 'New York'}
+
+# キーワード専用引数を強制
+# *以降の引数はキーワード引数である必要がある
+def func_with_keyword_only(data, *, keyword_arg):
+    print(keyword_arg)
+
+# ミュータブルな値を引数として関数に渡す場合、関数内部で値が変更されてしまう可能性があるので注意
